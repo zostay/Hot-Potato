@@ -1,0 +1,7 @@
+{{$NEXT}}
+
+    * Initial version.
+    * Very basic hot potato timer, uses SDL to play sound
+    * Is slightly buggy in that it does not play the start or rush alerts.
+    * Slightly buggy.
+    * Not tested.
