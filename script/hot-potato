@@ -1,0 +1,36 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use Games::HotPotato;
+use Getopt::Long;
+
+my @opt_spec = qw(
+    minimum-time|t=i
+    maximum-time|T=i
+    minimum-rush|r=i
+    maximum-rush|R=i
+    sound-theme|s=s
+    start-alert=s
+    rush-alert=s
+    final-alert=s
+    start-music=s
+    rush-music=s
+);
+
+s/^([\w\-]+)/$1|$1/ for @opt_spec;
+s/-/_/ for @opt_spec;
+
+my %opt;
+GetOptions(\%opt, @opt_spec);
+
+my @times = qw( minimum_time maximum_time minimum_rush maximum_rush );
+for my $time_name (@times) {
+    if (defined $opt{ $time_name }) {
+        $opt{ $time_name } = { seconds => $opt{ $time_name } };
+    }
+}
+
+my $hot_potato = Games::HotPotato->new(%opt);
+$hot_potato->run;
+
