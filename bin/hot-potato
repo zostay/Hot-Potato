@@ -98,7 +98,7 @@ This is the music to play when the timer starts.
 
 This is the music to play during the rush.
 
-=BUGS
+=head1 BUGS
 
 I need to fix the start sound and sound between the starting music and rush music.
 
